@@ -1,0 +1,45 @@
+.type-nav {
+  position: relative;
+  max-width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+
+  .type-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    display: flex;
+    flex-flow: nowrap;
+
+    &-item {
+      font-size: 1.6rem;
+      letter-spacing: 1.6rem * 0.025;
+      font-weight: 500;
+      transition: background-color $duration ease 0s;
+      opacity: 0.5;
+
+      + * {
+        margin-left: 1.6rem;
+      }
+
+      &.is-active {
+        opacity: 1;
+      }
+    }
+
+    &-link {
+      color: $colors--white;
+      text-decoration: none;
+    }
+
+    > * {
+      position: relative;
+      min-height: 1px;
+      flex: 0 0 auto;
+      width: auto;
+      max-width: 100%;
+      text-align: center;
+    }
+  }
+}

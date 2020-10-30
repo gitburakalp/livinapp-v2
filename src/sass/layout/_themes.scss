@@ -1,0 +1,8 @@
+html {
+  &[data-theme='dark'] {
+    body {
+      background-color: color(dark, bg);
+      color: color(dark, primary);
+    }
+  }
+}

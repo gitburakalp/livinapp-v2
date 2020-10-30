@@ -1,0 +1,25 @@
+html {
+  font-size: 62.5%;
+
+  body {
+    font-size: 1rem;
+
+    @for $i from 1 to 7 {
+      h#{$i} {
+        margin-bottom: 0;
+      }
+    }
+
+    figure {
+      margin-bottom: 0;
+    }
+
+    main {
+      > section {
+        + section {
+          margin-top: 4rem;
+        }
+      }
+    }
+  }
+}
