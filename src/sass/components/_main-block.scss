@@ -1,0 +1,31 @@
+.main-block {
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+
+  @include media-breakpoint-up(md) {
+    min-height: calc(100vh - var(--hh));
+  }
+
+  > * {
+    position: relative;
+    min-height: 1px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .main-thumb-slider-block {
+    @include media-breakpoint-up(md) {
+      flex: 0 0 45%;
+      max-width: 45%;
+      padding-left: 10%;
+    }
+  }
+
+  .main-slider-block {
+    @include media-breakpoint-up(md) {
+      flex: 0 0 55%;
+      max-width: 55%;
+    }
+  }
+}

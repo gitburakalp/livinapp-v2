@@ -1,0 +1,51 @@
+.main-cards {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.875rem;
+  box-shadow: 3px 2px 10px rgba($colors--black, 0.25);
+
+  .image {
+    padding-bottom: 250 / 180 * 100%;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to top, rgba($colors--black, 0.5) 2%, transparent);
+      z-index: 1;
+    }
+  }
+
+  &-contents {
+    position: absolute;
+    font-size: 1.2rem;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 1.5rem;
+    color: $colors--white;
+    z-index: 2;
+
+    .title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 0.025rem;
+
+      @include media-breakpoint-up(xl) {
+        font-size: 2rem;
+      }
+
+      + * {
+        margin-top: 0.5rem;
+      }
+    }
+
+    .location {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+}

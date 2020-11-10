@@ -1,0 +1,75 @@
+.header {
+  position: relative;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 4rem;
+
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 2rem 1.5rem;
+
+    + * {
+      margin-top: 10rem;
+    }
+  }
+
+  &-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    > * {
+      position: relative;
+      min-height: 1px;
+    }
+  }
+
+  &-right {
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  .hamburger {
+    position: relative;
+    width: 25px;
+
+    @include media-breakpoint-down(sm) {
+      + * {
+        margin-top: 4rem;
+      }
+    }
+
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+
+    > span {
+      display: block;
+      width: 100%;
+      border-top: 3px solid $colors--black;
+
+      &:last-child {
+        width: 65%;
+      }
+
+      + * {
+        margin-top: 6px;
+      }
+    }
+  }
+
+  &-brand {
+    @include media-breakpoint-down(sm) {
+      position: absolute;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}

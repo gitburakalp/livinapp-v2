@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -9,56 +9,63 @@
 </head>
 
 <body>
-    <div class="fixed-bg"
-        style="background-image: url('https://im.haberturk.com/2019/12/19/ver1576785210/2551140_5dc99990213ab301813e9d857146079e.jpg');">
-    </div>
-
+    <div class="fixed-bg"></div>
     <header class="header">
         <nav class="header-nav">
-            <div class="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
+            <div class="header-brand mr-md-4">
+                <a href="#" class="header-brand-logo">
+                    <img class="img-fluid" src="https://via.placeholder.com/90x60" />
+                </a>
             </div>
-            <div class="header-nav-title-section">
-                <h2 class="header-title">
-                    DISCOVER
-                </h2>
+            <div class="header-left">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="title-block">
+                    <h1 class="title title--xl d-md-none">
+                        Discover
+                    </h1>
+
+                    <ul class="main-list">
+                        <li class="main-list-item active" data-type="flavours">
+                            <a class="main-list-link">
+                                Flavours
+                            </a>
+                        </li>
+                        <li class="main-list-item" data-type="spa">
+                            <a class="main-list-link">
+                                Wellness
+                            </a>
+                        </li>
+                        <li class="main-list-item" data-type="entertainment">
+                            <a class="main-list-link">
+                                Entertainment
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="search">
-                <i class="icons icons--search"></i>
+
+            <div class="header-right">
+
             </div>
         </nav>
     </header>
-
     <main class="main">
         <section class="section">
-            <div class="type-nav">
-                <ul class="type-list">
-                    <li class="type-list-item is-active" data-type="flavours">
-                        <a class="type-list-link">
-                            Flavours
-                        </a>
-                    </li>
-                    <li class="type-list-item" data-type="regius-spa">
-                        <a class="type-list-link">
-                            Spa
-                        </a>
-                    </li>
-                    <li class="type-list-item" data-type="entertainment">
-                        <a class="type-list-link">
-                            Entertainment
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <section class="main-section">
-            <div id="mainSlider" class="slick-slider">
+            <div class="main-block">
+                <div class="main-slider-block">
+                    <div class="main-slider swiper-container">
+                        <div class="main-wrapper swiper-wrapper">
 
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+
 
     <script src="js/bundle.js"></script>
 </body>

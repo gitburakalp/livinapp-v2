@@ -2,7 +2,7 @@ html {
   font-size: 62.5%;
 
   body {
-    font-size: 1rem;
+    font-size: 1.4rem;
 
     @for $i from 1 to 7 {
       h#{$i} {
@@ -14,10 +14,14 @@ html {
       margin-bottom: 0;
     }
 
+    header ~ * {
+      margin-top: 1.5rem;
+    }
+
     main {
       > section {
         + section {
-          margin-top: 4rem;
+          margin-top: 1.5rem;
         }
       }
     }

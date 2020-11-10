@@ -1,13 +1,17 @@
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
 @import 'overrides';
 
 @import '../../node_modules/jquery-ui-dist/jquery-ui.min.css';
 
-@import '../../node_modules/slick-carousel/slick/slick.css';
-@import '../../node_modules/slick-carousel/slick/slick-theme.css';
-
+@import '../../node_modules/swiper/swiper-bundle.css';
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
+
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import 'libs/font-awesome/light.scss';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss';
 
 /* Base Styles */
 @import 'abstracts/index.scss';
