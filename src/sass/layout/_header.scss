@@ -3,6 +3,7 @@
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 4rem;
+  color: $colors--white;
 
   @include media-breakpoint-up(md) {
     position: absolute;
@@ -52,7 +53,7 @@
     > span {
       display: block;
       width: 100%;
-      border-top: 3px solid $colors--black;
+      border-top: 3px solid $colors--white;
 
       &:last-child {
         width: 65%;
@@ -70,6 +71,10 @@
       top: 1.5rem;
       left: 50%;
       transform: translateX(-50%);
+    }
+
+    img {
+      max-height: 60px;
     }
   }
 }

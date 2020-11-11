@@ -2,6 +2,7 @@ import $ from 'jquery';
 import Swiper from 'swiper/bundle';
 
 import mainSlideComponents from './ui/components/main-slide';
+import mainThumbSlideComponents from './ui/components/main-thumbs-slide';
 
 import '../sass/main.scss';
 
@@ -48,69 +49,65 @@ const setMainListEvents = () => {
 
 const initSwiper = () => {
   var ww = $(window).outerWidth();
+  var $fixedBg = $('.bg');
+  var swiperSpeed = 750;
 
   if (ww > 767.99) {
-    var mainsSliderSlideCount = $mainSlider.find('.main-slide').length;
-
     $('<div class="main-thumb-slider-block"><div class="main-thumb-slider swiper-container"><div class="swiper-wrapper"></div></div></div>').insertBefore('.main-slider-block');
 
     $mainSlider.find('.main-slide').each(function () {
       var $this = $(this);
-      var $mainThumbSlider = $('.main-thumb-slider');
       var title = $this.find('.title').text().trim();
       var description = $this.find('.main-cards-contents').data('description');
 
-      $mainThumbSlider.find('.swiper-wrapper').append(`
-        <div class="swiper-slide">
-            <h3 class="title">${title}</h3>
-
-            <div class="description-block">
-                <p class="description" data-swiper-parallax-opacity="0" data-swiper-parallax-y="-300" data-swiper-parallax-duration="1000">${description}</p>
-            </div>
-        </div>
-      `);
+      mainThumbSlideComponents.setMainThumbsSlide(title, swiperSpeed, description);
     });
 
     $mainSlider.append('<div class="main-slider-controls"><i class="fal fa-chevron-left main-slider--prev"></i><i class="fal fa-chevron-right main-slider--next"></i></div>');
 
     var mainSlider = new Swiper('.main-slider', {
-      speed: 1000,
       slidesPerView: 2.875,
+      speed: swiperSpeed,
       spaceBetween: 15,
       loop: true,
-      loopedSlides: mainsSliderSlideCount,
-      watchSlidesProgress: true,
-      watchSlidesVisibility: true,
+      loopedSlides: 2.875,
+      keyboard: true,
       slideToClickedSlide: true,
       navigation: {
         nextEl: '.main-slider--next',
         prevEl: '.main-slider--prev',
       },
       on: {
-        transitionStart: () => {
-          setTimeout(function () {
-            var thisSource = $('.main-slider').find('.swiper-slide-active img').attr('src');
+        transitionStart: swiper => {
+          var $activeSlide;
+          var imgSource;
 
-            $('.fixed-bg').attr('style', `background-image:url('${thisSource}')`);
-          }, 500);
+          swiper.slides.forEach(e => {
+            if ($(e).attr('class').includes('swiper-slide-active')) {
+              $activeSlide = $(e);
+              imgSource = $activeSlide.find('img').data('thumbs');
+            }
+          });
 
-          setTimeout(function () {
-            $('.fixed-bg').addClass('active');
-          }, 900);
+          $fixedBg
+            .fadeTo(150, 0.5, function () {
+              $(this).css('background-image', 'url(' + imgSource + ')');
+            })
+            .fadeTo(350, 1);
         },
       },
     });
 
     var mainThumbsSlider = new Swiper('.main-thumb-slider', {
-      speed: 1000,
+      speed: swiperSpeed,
       slidesPerView: 2.875,
       spaceBetween: 15,
       loop: true,
-      loopedSlides: mainsSliderSlideCount,
+      loopedSlides: 2.875,
       direction: 'vertical',
       centeredSlides: true,
-      slideToClickedSlide: true,
       parallax: true,
+      slideToClickedSlide: true,
     });
 
     mainSlider.controller.control = mainThumbsSlider;
@@ -119,20 +116,33 @@ const initSwiper = () => {
     $mainSlider.each(function () {
       var $this = $(this);
       var config = {
+        speed: 750,
+        touchRatio: 0.5,
         slidesPerView: 1.875,
         spaceBetween: 15,
-        freeMode: true,
-        loop: false,
-        breakpoints: {
-          768: {
-            slidesPerView: 2.875,
-            freeMode: false,
-            loop: true,
+        loop: true,
+        on: {
+          transitionStart: swiper => {
+            var $activeSlide;
+            var imgSource;
+
+            swiper.slides.forEach(e => {
+              if ($(e).attr('class').includes('swiper-slide-active')) {
+                $activeSlide = $(e);
+                imgSource = $activeSlide.find('img').data('thumbs');
+              }
+            });
+
+            $fixedBg
+              .fadeTo(150, 0.5, function () {
+                $(this).css('background-image', 'url(' + imgSource + ')');
+              })
+              .fadeTo(350, 1);
           },
         },
       };
 
-      window.mainSlider = new Swiper($this[0], config);
+      var mainSlider = new Swiper($this[0], config);
     });
   }
 };

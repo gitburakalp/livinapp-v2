@@ -31,7 +31,7 @@ module.exports = {
         use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
+        test: /\.(jpeg|jpg|png|gif|svg)$/i,
         use: [
           {
             loader: 'file-loader', // Or `url-loader` or your other loader
@@ -75,8 +75,8 @@ module.exports = {
       jQuery: 'jquery',
       'window.jQuery': 'jquery',
     }),
-    // new CopyWebpackPlugin({
-    //   patterns: [{ from: "src/Storage", to: "Storage" }],
-    // }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: 'src/Storage', to: 'Storage' }],
+    }),
   ],
 };

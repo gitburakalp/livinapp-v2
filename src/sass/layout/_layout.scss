@@ -1,6 +1,22 @@
 html {
   font-size: 62.5%;
 
+  @include media-breakpoint-up(xl) {
+    font-size: 75%;
+  }
+
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(20px);
+  }
+
   body {
     font-size: 1.4rem;
 

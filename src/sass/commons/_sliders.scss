@@ -1,21 +1,36 @@
 .main-wrapper {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 1.5rem;
+  @include media-breakpoint-down(sm) {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
 }
 
 .main-slider {
   margin-top: -1rem;
 
+  .swiper-slide {
+    transition: opacity 750ms linear, transform 750ms linear;
+    opacity: 0.5;
+    transform: scale(0.875);
+
+    &.swiper-slide-active {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
   @include media-breakpoint-up(md) {
     .main-slide {
-      transition: transform $duration * 2 cubic-bezier(0.39, 0.575, 0.565, 1), opacity $duration;
-      transform: scale(0.875);
-      opacity: 0.35;
+      .main-cards {
+        transition: all 500ms;
+        transform: scale(0.875);
+      }
 
       &[class*='active'] {
-        opacity: 1;
-        transform: scale(1);
+        .main-cards {
+          transform: scale(1);
+        }
       }
     }
 
@@ -26,10 +41,10 @@
         position: relative;
         padding: 1.25rem 1.6rem;
         border-radius: 50%;
-        background-color: rgba($colors--black, 0.125);
-        color: $colors--black;
+        background-color: rgba($colors--black, 0.75);
+        color: $colors--white;
         box-shadow: 0 4px 10px rgba($colors--black, 0.125);
-        transition: all $duration * 2;
+        transition: all $duration;
 
         &:active {
           transform: scale(0.75);
@@ -48,9 +63,22 @@
 }
 
 .main-thumb-slider {
+  .swiper-slide {
+    .description {
+      @include media-breakpoint-up(md) {
+        font-size: 1.2rem;
+      }
+
+      @include media-breakpoint-up(xl) {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
   @include media-breakpoint-up(md) {
     max-height: 70vh;
     color: $colors--white;
+    padding-right: 3rem;
 
     .swiper-slide {
       display: flex;
@@ -61,8 +89,8 @@
       opacity: 0.35;
 
       &[class*='active'] {
-        opacity: 1;
         transform: scale(1);
+        opacity: 1;
 
         .description-block {
           max-height: unset;
@@ -82,4 +110,9 @@
       }
     }
   }
+}
+
+.swiper-slide {
+  cursor: pointer;
+  transform-style: flat;
 }

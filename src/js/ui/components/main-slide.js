@@ -1,6 +1,4 @@
 function setMainSlide(data) {
-  console.log(data);
-
   var imageUrl = '';
   var location = '';
 
@@ -20,7 +18,7 @@ function setMainSlide(data) {
   <div class="main-slide swiper-slide">
     <div class="main-cards">
         <figure class="image">
-            <img src="${imageUrl}" alt="">
+            <img src="${imageUrl}" alt="" data-thumbs="${imageUrl.split(/.jpg/)[0] + '_thumb.jpg'}">
         </figure>
         <div class="main-cards-contents"
             data-description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia, accusantium! Veritatis eaque provident, ipsum libero odio illo nulla iure distinctio autem, illum dolores facere velit cum asperiores maxime. Suscipit, officia.">
